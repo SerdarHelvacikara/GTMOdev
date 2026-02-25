@@ -22,7 +22,9 @@ layout: default
               {% include product-definition.html %}
             </div>
             <div class="col-4">
-<img src="{{ page.image | relative_url }}" alt="{{ page.name }} product image" style="width: 200px; height: 200px;">            </div>
+<img src="{{ page.image | relative_url }}" 
+     alt="{{ page.name }} product image" 
+     style="width: 200px !important; height: 200px !important; display: block; margin: 0 auto;">            </div>
           </div>
         </div>
       </div>
