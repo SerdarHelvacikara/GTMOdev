@@ -1,31 +1,43 @@
+---
 layout: default
 ---
 
-<div class="container">
-  <div class="row">
-    <div class="col py-4">
-      <a href="{{ '/' | relative_url }}">Tüm Oyuncaklar</a>
-    </div>
-  </div>
-</div>
+<div class="container py-4">
+  <a class="text-decoration-none" href="{{ '/' | relative_url }}">← Tüm Oyuncaklar</a>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="card bg-white p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h2>{{ page.name }}</h2>
-              <p>{{ content }}</p>
-              {% include product-definition.html %}
-            </div>
-            <div class="col-4">
-              <img src="{{ page.image | relative_url }}" alt="{{ page.name }} product image" class="w-100">
-            </div>
+  <div class="card shadow-sm mt-3 overflow-hidden">
+    <div class="row g-0">
+
+      <!-- Görsel -->
+      <div class="col-md-5">
+        <img
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.name }} product image"
+          class="img-fluid w-100 h-100"
+          style="object-fit: cover; min-height: 320px;"
+        >
+      </div>
+
+      <!-- İçerik -->
+      <div class="col-md-7">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-2">{{ page.name }}</h1>
+
+          {% if page.price %}
+            <div class="fs-4 fw-bold mb-3">{{ page.price }} ₺</div>
+          {% endif %}
+
+          <p class="text-secondary mb-4">{{ content }}</p>
+
+          {% include product-definition.html %}
+
+          <div class="mt-4 d-flex gap-2">
+            <button class="btn btn-primary">Sepete Ekle</button>
+            <a class="btn btn-outline-secondary" href="{{ '/' | relative_url }}">Listeye dön</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
